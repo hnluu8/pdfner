@@ -1,0 +1,24 @@
+# Core
+dependency-injector==3.14.4
+
+# PDF
+pdf2image==1.4.2
+pymupdf==1.16.8
+pikepdf==1.1.0
+img2pdf==0.3.3
+
+# Elasticsearch
+elasticsearch-dsl==6.3.1
+requests_aws4auth==0.9
+
+# NLP
+textacy==0.6.2
+msgpack-python==0.5.6
+pynlp==0.4.2
+
+# AWS and FS
+boto3==1.9.60
+
+# Test
+pytest==5.3.2
+pycodestyle==2.5.0
