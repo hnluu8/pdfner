@@ -18,7 +18,7 @@ jobs:
     - stage: test
       script:
       - export LAMBDA_EXECUTOR=local; export SERVICES=es
-      - pip install -q localstack; docker pull localstack/localstack; localstack start --docker & sleep 20
+      - pip install -q localstack; docker pull localstack/localstack; localstack start --docker & sleep 30
       - pytest --verbose --capture=no pdfner/tests/test_search.py
 
 notifications:
