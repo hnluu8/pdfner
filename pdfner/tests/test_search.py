@@ -4,8 +4,8 @@ from pdfner.config import IocContainer, ElasticsearchClient
 container = IocContainer(
     config={
         'search': {
-            'host': '127.0.0.1',
-            'port': 9200
+            'host': 'localhost',
+            'port': 4571
         }
     }
 )
@@ -17,6 +17,10 @@ class TestSearch:
                           document_name='test')
         es_client: ElasticsearchClient = container.elasticsearch_client()
         es_client.index(doc)
+        s = NerDocument.search(using=es_client.es)
+        s = s.query('match', title='test')
+        result = s.execute()
+        print(result)
 
     def test_search_by_single_field(self):
         es_client: ElasticsearchClient = container.elasticsearch_client()
