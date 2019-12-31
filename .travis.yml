@@ -23,8 +23,8 @@ jobs:
       before_script:
       - sleep 10
       script:
-      - sudo cat /var/log/elasticsearch/elasticsearch.log
       - curl -v http://localhost:9200/
+      - sudo cat /var/log/elasticsearch/elasticsearch.log
 
 notifications:
   email: false
