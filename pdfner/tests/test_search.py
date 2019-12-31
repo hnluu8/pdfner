@@ -17,10 +17,6 @@ class TestSearch:
                           document_name='test')
         es_client: ElasticsearchClient = container.elasticsearch_client()
         es_client.index(doc)
-        s = NerDocument.search(using=es_client.es)
-        s = s.query('match', title='test')
-        result = s.execute()
-        print(result)
 
     def test_search_by_single_field(self):
         es_client: ElasticsearchClient = container.elasticsearch_client()
