@@ -4,9 +4,6 @@ language: python
 python:
   - "3.7"
 
-services:
-  - elasticsearch
-
 before_install:
   - sudo cat /etc/elasticsearch/elasticsearch.yml
   - sudo systemctl status elasticsearch.service
