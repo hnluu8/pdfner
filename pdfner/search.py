@@ -5,7 +5,7 @@ from elasticsearch_dsl import Document
 
 class ElasticsearchClient(object):
     def __init__(self, host: str, port: int, document_classes: List[Type[Document]]):
-        if host == 'localhost':
+        if host == 'localhost' or host == '127.0.0.1':
             self.es = Elasticsearch(hosts=[{'host': host, 'port': port}])
         else:
             from botocore.session import get_session
