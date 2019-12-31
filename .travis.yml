@@ -4,9 +4,6 @@ language: python
 python:
   - "3.7"
 
-before_install:
-  - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.8.6.deb && sudo dpkg -i --force-confnew elasticsearch-6.8.6.deb && sudo -i service elasticsearch start
-
 install: skip
 
 stages:
@@ -18,7 +15,6 @@ jobs:
       before_script:
       - sleep 10
       script:
-      - sudo ls -al /var/log/elasticsearch/
       - curl -v http://localhost:9200/
 
 notifications:
