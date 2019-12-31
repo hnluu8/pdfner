@@ -20,7 +20,7 @@ jobs:
   include:
     - stage: test
       before_script:
-      - sleep 10
+      - sleep 30
       script:
       - pytest --verbose --capture=no pdfner/tests/test_search.py
 
