@@ -21,7 +21,7 @@ jobs:
   include:
     - stage: test
       before_script:
-      - sleep 10
+      - sleep 30
       script:
       - curl -v http://localhost:9200/
       - sudo cat /var/log/elasticsearch/elasticsearch.log
