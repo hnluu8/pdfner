@@ -10,6 +10,7 @@ before_install:
   - shasum -a 512 -c elasticsearch-7.5.1-amd64.deb.sha512
   - sudo dpkg -i --force-confnew elasticsearch-7.5.1-amd64.deb
   - sudo systemctl status elasticsearch.service
+  - sudo journalctl -xe
 
 install: skip
 
