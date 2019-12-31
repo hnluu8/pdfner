@@ -5,7 +5,7 @@ python:
   - "3.7"
 
 services:
-  - docker
+  - elasticsearch
 
 install:
   - pip install -r requirements.txt
@@ -16,9 +16,9 @@ stages:
 jobs:
   include:
     - stage: test
+      before_script:
+      - sleep 10
       script:
-      - export SERVICES=es
-      - pip install -q localstack; docker pull localstack/localstack; localstack start --docker & sleep 30
       - pytest --verbose --capture=no pdfner/tests/test_search.py
 
 notifications:
