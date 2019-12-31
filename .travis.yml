@@ -20,7 +20,7 @@ jobs:
       before_script:
       - sleep 10
       script:
-      - sudo ls -al /var/log/elasticsearch/
+      - sudo cat /var/log/elasticsearch/elasticsearch.log
       - curl -v http://localhost:9200/
 
 notifications:
