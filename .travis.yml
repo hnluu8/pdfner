@@ -10,7 +10,6 @@ services:
 before_install:
   - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.8.6.deb
   - sudo dpkg -i --force-confnew elasticsearch-6.8.6.deb
-  - sudo service elasticsearch restart
 
 install: skip
 
@@ -21,7 +20,7 @@ jobs:
   include:
     - stage: test
       before_script:
-      - sleep 30
+      - sleep 10
       script:
       - curl -v http://localhost:9200/
       - sudo cat /var/log/elasticsearch/elasticsearch.log
