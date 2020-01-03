@@ -23,5 +23,5 @@ class NerDocument(Document):
 
     def save(self, **kwargs):
         self.index_date = datetime.utcnow()
-        return super().save(**kwargs)
+        return super(NerDocument, self).save(**kwargs)
 
