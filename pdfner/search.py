@@ -30,6 +30,6 @@ class ElasticsearchClient(object):
             cls.init(using=self.es)
 
     def index(self, document: Document, **kwargs):
-        document.save(using=self.es, **kwargs)
+        return document.save(using=self.es, **kwargs)
 
 
