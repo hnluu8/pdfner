@@ -26,7 +26,7 @@ jobs:
       before_script:
       - sleep 10
       script:
-      - curl -v http://localhost:9200/
+      - pytest --verbose --capture=no pdfner/tests/test_search.py
 
 notifications:
   email: false
