@@ -12,9 +12,9 @@ elasticsearch-dsl==7.1.0
 requests_aws4auth==0.9
 
 # NLP
-#textacy==0.6.2
-#msgpack-python==0.5.6
-#pynlp==0.4.2
+textacy==0.6.2
+msgpack-python==0.5.6
+pynlp==0.4.2
 
 # AWS and FS
 #boto3==1.9.60
