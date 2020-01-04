@@ -12,12 +12,12 @@ container = IocContainer(
 
 
 class TestSearch:
-    def test_index(self):
-        doc = NerDocument(title='A document to test with',
-                          document_name='test')
-        es_client: ElasticsearchClient = container.elasticsearch_client()
-        result = es_client.index(doc)
-        print(result)
+    # def test_index(self):
+    #     doc = NerDocument(title='A document to test with',
+    #                       document_name='test')
+    #     es_client: ElasticsearchClient = container.elasticsearch_client()
+    #     result = es_client.index(doc)
+    #     print(result)
 
     def test_search_by_single_field(self):
         es_client: ElasticsearchClient = container.elasticsearch_client()

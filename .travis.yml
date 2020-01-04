@@ -29,6 +29,7 @@ jobs:
       script:
       - pytest --verbose --capture=no pdfner/tests/test_search.py
       - curl -X GET 'http://localhost:9200/_cat/indices?v'
+      - curl -X GET 'http://localhost:9200/pdfner/_search'
 
 notifications:
   email: false
