@@ -28,7 +28,7 @@ jobs:
       - sleep 10
       script:
       - pytest --verbose --capture=no pdfner/tests/test_search.py
-      - sudo cat /var/log/elasticsearch/elasticsearch.log
+      - curl -X GET 'http://localhost:9200/_cat/indices?v'
 
 notifications:
   email: false
