@@ -24,8 +24,6 @@ stages:
 jobs:
   include:
     - stage: test
-      before_script:
-      - sleep 10
       script:
       - pytest --verbose --capture=no pdfner/tests/test_search.py
       - curl -X GET 'http://localhost:9200/_cat/indices?v'
