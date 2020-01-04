@@ -4,7 +4,7 @@ from pdfner.config import IocContainer, ElasticsearchClient
 container = IocContainer(
     config={
         'search': {
-            'host': '127.0.0.1',
+            'host': 'localhost',
             'port': 9200
         }
     }
