@@ -26,6 +26,7 @@ jobs:
     - stage: test
       script:
       - pytest --verbose --capture=no pdfner/tests/test_search.py
+      - curl -XPUT --header 'Content-Type: application/json' http://localhost:9200/pdfner/_doc/1 -d '{"title": "Index document from Travis CI"}'
       - curl -X GET 'http://localhost:9200/_cat/indices?v'
       - curl -X GET 'http://localhost:9200/pdfner/_search'
 
