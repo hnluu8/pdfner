@@ -28,6 +28,7 @@ jobs:
       - sleep 10
       script:
       - pytest --verbose --capture=no pdfner/tests/test_search.py
+      - sudo cat /var/log/elasticsearch/elasticsearch.log
 
 notifications:
   email: false
