@@ -5,6 +5,8 @@ python:
   - "3.7"
 
 before_install:
+  # ocrmypdf
+  - sudo apt-get install -y ocrmypdf
   # Overwrite the ElasticSearch that comes with the Travis CI environment - the changes to jvm.options are done in an
   # attempt to emulate the existing config for Elasticsearch 5.5.
   - curl -s -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.5.1-amd64.deb
@@ -14,6 +16,10 @@ before_install:
   - echo -e '-XX:+DisableExplicitGC\n-Djdk.io.permissionsUseCanonicalPath=true\n-Dlog4j.skipJansi=true\n-server\n' | sudo tee -a /etc/elasticsearch/jvm.options
   - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
   - sudo systemctl start elasticsearch
+  # Solr
+  - mkdir ../solr && pushd ../solr
+  - curl -s -O https://www-us.apache.org/dist/lucene/solr/8.4.1/solr-8.4.1.tgz
+  - tar xzf solr-8.4.1.tgz && ./solr-8.4.1/bin/solr -c -e schemaless
 
 install:
   - pip install -r requirements.txt
@@ -25,7 +31,7 @@ jobs:
   include:
     - stage: test
       script:
-      - pytest --verbose --capture=no pdfner/tests/test_search.py
+      - pytest --verbose --capture=no pdfner/tests/test_api.py
 
 notifications:
   email: false
