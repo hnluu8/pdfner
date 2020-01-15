@@ -35,7 +35,7 @@ jobs:
   include:
     - stage: test
       script:
-      - pytest --verbose --capture=no pdfner/tests/test_api.py --pdf_file=/home/travis/build/hnluu8/pdfner/pdfner/tests/data/gre_research_validity_data.pdf
+      - pytest --verbose --capture=no pdfner/tests/test_api.py --pdf_file=./pdfner/tests/data/gre_research_validity_data.pdf
 
 notifications:
   email: false
