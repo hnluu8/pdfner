@@ -23,6 +23,7 @@ before_install:
   - mkdir ../solr && pushd ../solr
   - curl -s -O https://www-us.apache.org/dist/lucene/solr/8.4.1/solr-8.4.1.tgz
   - tar xzf solr-8.4.1.tgz && ./solr-8.4.1/bin/solr -c -e schemaless
+  - popd
 
 install:
   - pip install -r requirements.txt
