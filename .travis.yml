@@ -30,6 +30,7 @@ install:
 
 stages:
   - test
+  - deploy
 
 jobs:
   include:
@@ -38,8 +39,14 @@ jobs:
       - python -m spacy download en
       script:
       - pytest --verbose --capture=no pdfner/tests/test_api.py --pdf_file=./pdfner/tests/data/gre_research_validity_data.pdf
+    - stage: deploy
+      deploy:
+        provider: pypi
+        user: hnluu8
+          password:
+            secure: Dee5I7jbopgAuEwlf5CY2n7cn/L1zSC6hP5qEua+JfaWzbKr4h8e/4pWKoY18cP19eQrwldZsbs8/FWkK6pavEHliCJo+2iwYmdwvzDNK2SgF/NPJ43VUh8bvaGhG45IGaO+wjC5q/8emrnmBgPmnOKgDySiw5+eXuavRp/RwJ9MzbVMrpi+2/AyBk4Ve0r0ulaptOEHZMx3hLb5bJu3Sy4NJys7kM+mrnBSLQ+6eKVldYa+6L8mNFxQaEjhO3mHsqS/Gzrzq5R6mt+TRvwhTj2+vj9G2fJaiBuQ91a5OqJGrkYQmoMPSrvoa65P8csIV2JKY754pqxqAhU0ZPmXVSyWHEpe/iHMRizPgZubI345kfzWUKN1CZQcZsD3DyTUebv+Ml/QMEtSQmlZ6WQg2gTCTdrueVQFvgYLO2lwaJJMDXqiyWZySUdYTIE9cv5dksg9hueQHpOmHdpTJcSwA8r3qSMvRC8HogL7yJrMSVPqGEybIqPKaQfvDOd7//vBHEXou7YYZa4bIJqrs0trstds1ywJhimJp5wm467Xrbn/TRJSolyIIhKOznxGjxiQLVhJmqCBE2c54Kd/hezNlFEoOOUs5f2grw//H9Ur9y6FwfQhs17/frC9eiu7PSjGasf7kplh8TyCQFaPUWagLPS/xB3r8HIuYIWSCSYYp9k=
+        distributions: sdist bdist_wheel
+        skip_existing: true
 
 notifications:
   email: false
-
-
