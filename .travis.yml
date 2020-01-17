@@ -40,6 +40,8 @@ jobs:
       script:
       - pytest --verbose --capture=no pdfner/tests/test_api.py --pdf_file=./pdfner/tests/data/gre_research_validity_data.pdf
     - stage: deploy
+      install: skip
+      script: skip
       deploy:
         provider: pypi
         user: hnluu8
